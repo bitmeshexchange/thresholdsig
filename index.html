@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bitmesh threshold signature</title>
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://unpkg.com/bsv@0.30.0/bsv.min.js"></script>
+    <script type="text/javascript" src="https://mhe.github.io/jspaillier/js/jsbn/jsbn.js"></script>
+    <script type="text/javascript" src="https://mhe.github.io/jspaillier/js/jsbn/jsbn2.js"></script>
+    <script type="text/javascript" src="https://mhe.github.io/jspaillier/js/jsbn/prng4.js"></script>
+    <script type="text/javascript" src="https://mhe.github.io/jspaillier/js/jsbn/rng.js"></script>
+    <script src="https://mhe.github.io/jspaillier/js/paillier.js"></script>
+    <script src="index.js"></script>
+    <style media="screen">
+      .form {
+        padding: 30px;
+      }
+
+      #root {
+        display: none;
+      }
+
+      #log p {
+        white-space: nowrap;
+      }
+
+      #loading {
+        height: 100vh;
+        align-items: center;
+      }
+    </style>
+  </body>
+
+  <div class="d-flex justify-content-center" id="loading">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div id="root">
+    <form class="form">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputEmail4">Threshold</label>
+          <input type="number" class="form-control" id="Threshold" value="2"/>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputPassword4">Parties</label>
+          <input type="number" class="form-control" id="Parties" value="3" />
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputPassword4">Message</label>
+          <input type="text" class="form-control" id="message" value="bitmesh.com" />
+        </div>
+      </div>
+
+
+      <button type="button" class="btn btn-primary" id="key">Generate key shares</button>
+      <button type="button" class="btn btn-primary" id="sign">Sign message</button>
+    </form>
+    <div id="log"></div>
+  </div>
+</html>
